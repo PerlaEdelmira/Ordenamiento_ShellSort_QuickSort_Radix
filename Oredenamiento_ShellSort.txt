@@ -31,6 +31,48 @@ public void ordenamientoShellsort(int A[]) {
 		System.out.println("-------> Intercambios: " + intercambios );
 		System.out.println("-------> Comparaciones: " + comparaciones);
 	}
+	public void ordenamientoQuickSort(int numeros[], int primero, int ultimo) {
+		int recorridos=0, intercambios=0, comparaciones=0;
+		long tInicio, tFin;
+		tInicio = System.nanoTime();
+		
+		int i, j, pivote, aux;
+		i = primero;
+		j = ultimo;
+		pivote = numeros[primero];
+		while (i<j) {
+			while (numeros[i] <= pivote && i < j) {
+				i++;
+			}
+			while(numeros[j] > pivote) {
+				j--;
+			}
+			if(i < j) {
+				comparaciones++;
+				aux = numeros[i];
+				numeros[i] = numeros[j];
+				numeros[j] = aux;
+				//intercambios++;
+			}
+		}
+		recorridos++;
+		numeros[primero] = numeros[j];
+		numeros[j] = pivote;
+		intercambios++;
+		if(primero < j-1) {
+			ordenamientoQuickSort(numeros, primero, j-1);
+		}
+		if(j+1 < ultimo) {
+			ordenamientoQuickSort(numeros, j+1, ultimo);
+		}
+		
+		mostrarVector(numeros);
+		tFin = System.nanoTime();
+		System.out.println("-------> Tiempo de Procesamiento: " + (tFin - tInicio));
+		System.out.println("-------> Recorridos: " + recorridos );
+		System.out.println("-------> Intercambios: " + intercambios );
+		System.out.println("-------> Comparaciones: " + comparaciones);
+	}
 	public void mostrarVector(int numeros[]) {
 		System.out.println(Arrays.toString(numeros));
 	}
@@ -38,5 +80,8 @@ public void ordenamientoShellsort(int A[]) {
 public class EjemploMetodosORdenamiento {
 	public static void main(String[] args) {
 	
+	MetodosDeOrdenamiento mo = new MetodosDeOrdenamiento();
+		Scanner entrada = new Scanner(System.in);
+
 	}
 }
