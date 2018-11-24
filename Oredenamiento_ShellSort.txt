@@ -31,4 +31,12 @@ public void ordenamientoShellsort(int A[]) {
 		System.out.println("-------> Intercambios: " + intercambios );
 		System.out.println("-------> Comparaciones: " + comparaciones);
 	}
+	public void mostrarVector(int numeros[]) {
+		System.out.println(Arrays.toString(numeros));
+	}
+}
+public class EjemploMetodosORdenamiento {
+	public static void main(String[] args) {
+	
+	}
 }
